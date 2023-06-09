@@ -41,10 +41,10 @@ if [[ $use_mega == "y" ]]; then
     echo "Mega credentials stored successfully"
 
     clear
-    echo "Installation complete! If you want to import your .blend files via Mega : run import script, if not, import your .blend files in blender-3.5.1-linux-x64/media directory."
+    echo "Installation complete! You can now run the following command : ./main.sh"
     ./main.sh
 else
     clear
-    echo "Installation complete! You chose not to install Google Drive. Please import your .blend files in blender-3.5.1-linux-x64/media directory."
+    echo "Installation complete! You chose not to install Mega. Please import your .blend files via ssh in blender-3.5.1-linux-x64/media directory.  ///  You can now run the following command : ./main.sh"
     ./main.sh
 fi
