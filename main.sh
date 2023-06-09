@@ -9,7 +9,7 @@ function main_menu {
     echo "=========================================="
     echo "Please select an option:"
     echo "1. Install Blender and necessary packages"
-    echo "2. Mega Import/Export"
+    echo "2. Import / Export"
     echo "3. Launch Render"
     echo "4. Exit"
 }
@@ -28,9 +28,9 @@ while true; do
             clear
             ./install.sh
             ;;
-        2) # Import/Export .blend files from Mega
+        2) # Import/Export .blend files
             clear
-            ./mega.sh
+            ./importexport.sh
             ;;
         3) # Launch Render
             clear
