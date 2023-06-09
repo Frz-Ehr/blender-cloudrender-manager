@@ -26,25 +26,6 @@ for device in cprefs.devices:
         device.use = True" > gpu.py
 
 clear
-# Ask the user if they want to install and use Mega
-read -p "Do you want to install and use Mega for importing .blend files? (y/n): " use_mega
-if [[ $use_mega == "y" ]]; then
-    sudo apt-get install -y megatools
-    echo "Megatools installed successfully"
-    echo " ! USE A DEDICATED MEGA ACCOUNT. FOR SECURITY REASONS, DO NOT USE YOUR PERSONAL ACCOUNT ! "
-    echo "Please enter your Mega email:"
-    read email
-    echo "Please enter your Mega password:"
-    read -s password
-    echo -e "[Login]\nUsername = $email\nPassword = $password" > ~/.megarc
-    chmod 600 ~/.megarc
-    echo "Mega credentials stored successfully"
-
-    clear
-    echo "Installation complete! You can now import your .blend files (don't forget to pack external data or import a .zip file)"
-    ./main.sh
-else
-    clear
-    echo "Installation complete! You chose not to install Mega. Please import your .blend files via ssh in blender-3.5.1-linux-x64/media directory. (don't forget to pack external data or import a .zip file)"
-    ./main.sh
+echo "Installation complete! You can now import your .blend files (don't forget to pack external data or import a .zip file)"
+./main.sh
 fi
