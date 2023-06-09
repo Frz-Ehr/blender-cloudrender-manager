@@ -27,7 +27,7 @@ git --version
 After Git is installed, you can clone this repository to your instance using the following command:
 
 ```bash
-git clone https://github.com/Frz-Ehr/blender-cloudrender-manager
+git clone https://github.com/Frz-Ehr/blender-cloudrender-manager.git
 ```
 
 After cloning, navigate into the directory of the repository and run the main script to start the setup:
