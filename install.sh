@@ -31,7 +31,7 @@ read -p "Do you want to install and use Mega for importing .blend files? (y/n): 
 if [[ $use_mega == "y" ]]; then
     sudo apt-get install -y megatools
     echo "Megatools installed successfully"
-
+    echo " ! USE A DEDICATED MEGA ACCOUNT. FOR SECURITY REASONS, DO NOT USE YOUR PERSONAL ACCOUNT ! "
     echo "Please enter your Mega email:"
     read email
     echo "Please enter your Mega password:"
