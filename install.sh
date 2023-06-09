@@ -25,7 +25,8 @@ for device in cprefs.devices:
     if device.type == 'OPTIX':
         device.use = True" > gpu.py
 
-# Ask the user if they want to install and use Google Drive
+clear
+# Ask the user if they want to install and use Mega
 read -p "Do you want to install and use Mega for importing .blend files? (y/n): " use_mega
 if [[ $use_mega == "y" ]]; then
     sudo apt-get install -y megatools
