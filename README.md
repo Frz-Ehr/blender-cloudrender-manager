@@ -30,17 +30,15 @@ After Git is installed, you can clone this repository to your instance using the
 git clone https://github.com/Frz-Ehr/blender-cloudrender-manager.git
 ```
 
-After cloning, navigate into the directory of the repository and run the main script to start the setup:
+After cloning, navigate into the directory of the repository:
 
 ```bash
 cd blender-cloudrender-manager
-./main.sh
 ```
 
----
-
-Note: You may need to provide executable permissions to the scripts using the following command:
+And run the main script to start the setup:
 
 ```bash
 chmod +x *.sh
+./main.sh
 ```
