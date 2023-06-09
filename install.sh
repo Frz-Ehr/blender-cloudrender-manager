@@ -26,20 +26,21 @@ for device in cprefs.devices:
         device.use = True" > gpu.py
 
 # Ask the user if they want to install and use Google Drive
-read -p "Do you want to install and use Google Drive for importing .blend files? (y/n): " use_gdrive
-if [[ $use_gdrive == "y" ]]; then
-    # Install gdrive
-    cd ~  
-    wget https://docs.google.com/uc?id=0B3X9GlR6EmbnWksyTEtCM0VfaFE&export=download  
-    mv uc?id=0B3X9GlR6EmbnWksyTEtCM0VfaFE gdrive  
-    chmod +x gdrive  
-    sudo install gdrive /usr/local/bin/gdrive  
+read -p "Do you want to install and use Mega for importing .blend files? (y/n): " use_mega
+if [[ $use_mega == "y" ]]; then
+    sudo apt-get install -y megatools
+    echo "Megatools installed successfully"
 
-    # Connect gdrive
-    echo "Please authenticate gdrive by following the instructions in the terminal. I RECOMMEND LOGGING IN WITH A DEDICATED GOOGLE ACCOUNT. FOR SECURITY REASONS, DO NOT USE YOUR PERSONAL GOOGLE ACCOUNT."
-    gdrive list
+    echo "Please enter your Mega email:"
+    read email
+    echo "Please enter your Mega password:"
+    read -s password
+    echo -e "[Login]\nUsername = $email\nPassword = $password" > ~/.megarc
+    chmod 600 ~/.megarc
+    echo "Mega credentials stored successfully"
 
-    echo "Installation complete! If you want to import your .blend files via Google Drive : run ggimport.sh, if not, import your .blend files in blender-3.5.1-linux-x64/media directory."
+
+    echo "Installation complete! If you want to import your .blend files via Mega : run import script, if not, import your .blend files in blender-3.5.1-linux-x64/media directory."
 else
     echo "Installation complete! You chose not to install Google Drive. Please import your .blend files in blender-3.5.1-linux-x64/media directory."
 fi
