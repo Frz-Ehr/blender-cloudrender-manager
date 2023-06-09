@@ -29,7 +29,7 @@ while true; do
             clear
             ./install.sh
             ;;
-        2) # Import .blend files from Google Drive
+        2) # Import .blend files from Mega
             clear
             ./import.sh
             ;;
@@ -37,7 +37,7 @@ while true; do
             clear
             ./render.sh
             ;;
-        4) # Export rendered files to Google Drive
+        4) # Export rendered files to Mega
             clear
             ./export.sh
             ;;
