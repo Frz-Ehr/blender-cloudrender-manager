@@ -17,13 +17,24 @@ mkdir media output
 # Create gpu.py
 echo "import bpy
 scene = bpy.context.scene
-scene.cycles.device = 'OPTIX'
 prefs = bpy.context.preferences
 cprefs = prefs.addons['cycles'].preferences
-cprefs.compute_device_type = 'OPTIX'
-for device in cprefs.devices:
-    if device.type == 'OPTIX':
-        device.use = True" > gpu.py
+
+# Try to use OptiX
+try:
+    scene.cycles.device = 'OPTIX'
+    cprefs.compute_device_type = 'OPTIX'
+    for device in cprefs.devices:
+        if device.type == 'OPTIX':
+            device.use = True
+except:
+    # If OptiX is not available, fall back to CUDA
+    scene.cycles.device = 'CUDA'
+    cprefs.compute_device_type = 'CUDA'
+    for device in cprefs.devices:
+        if device.type == 'CUDA':
+            device.use = True
+" > gpu.py
 
 clear
 echo "Installation complete! You can now import your .blend files (don't forget to pack external data or import a .zip file)"
