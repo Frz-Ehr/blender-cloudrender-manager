@@ -27,5 +27,6 @@ for device in cprefs.devices:
 
 clear
 echo "Installation complete! You can now import your .blend files (don't forget to pack external data or import a .zip file)"
+cd ..
 ./main.sh
 fi
