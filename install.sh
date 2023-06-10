@@ -14,25 +14,8 @@ tar -xvf blender-3.5.1-linux-x64.tar
 cd blender-3.5.1-linux-x64
 mkdir media output
 
-# Create gpu.py
-echo "
-import bpy
-
-# Trigger GPU device detection
-bpy.context.preferences.addons['cycles'].preferences.get_devices()
-
-# Print the compute device type
-print(bpy.context.preferences.addons['cycles'].preferences.compute_device_type)
-
-# Set all detected devices to be used
-for device in bpy.context.preferences.addons['cycles'].preferences.devices:
-    device['use'] = 1
-    print(device['name'], device['use'])
-
-# Set the render engine to CYCLES and the device to GPU
-bpy.context.scene.render.engine = 'CYCLES'
-bpy.context.scene.cycles.device = 'GPU'
-" > gpu.py
+# Import gpu.py
+mv /root/blender-cloudrender-manager/gpu.py /root/blender-cloudrender-manager/blender-3.5.1-linux-x64/gpu.py
 
 clear
 echo "Installation complete! You can now import your .blend files (don't forget to pack external data or import a .zip file)"
