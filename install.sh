@@ -26,8 +26,8 @@ print(bpy.context.preferences.addons['cycles'].preferences.compute_device_type)
 
 # Set all detected devices to be used
 for device in bpy.context.preferences.addons['cycles'].preferences.devices:
-    device["use"] = 1
-    print(device["name"], device["use"])
+    device['use'] = 1
+    print(device['name'], device['use'])
 
 # Set the render engine to CYCLES and the device to GPU
 bpy.context.scene.render.engine = 'CYCLES'
