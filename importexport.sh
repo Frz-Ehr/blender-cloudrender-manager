@@ -13,8 +13,7 @@ function main_menu {
     echo "Please select an option:"
     echo "1. Generate SCP command to import .blend files"
     echo "2. Generate SCP command to export rendered files"
-    echo "3. Update SSH key for passwordless login"
-    echo "4. Return to main menu"
+    echo "3. Return to main menu"
 }
 
 # Loop until the user chooses to return to main menu
@@ -45,14 +44,7 @@ while true; do
             echo "Here is your SCP command:"
             echo "scp ./blender-3.5.1-linux-x64/output/* $remote_user@$ip:$remote_path"
             ;;
-        3) # Update SSH key for passwordless login
-            clear
-            echo "Please enter your public key:"
-            read public_key
-            echo "$public_key" >> ~/.ssh/authorized_keys
-            echo "Public key added successfully!"
-            ;;
-        4) # Return to main menu
+        3) # Return to main menu
             echo "Returning to main menu..."
             ./main.sh
             ;;
