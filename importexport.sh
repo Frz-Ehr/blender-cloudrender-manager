@@ -36,7 +36,7 @@ while true; do
             echo "Please enter the SSH port of this remote machine:"
             read remote_port
             echo "Here is your SCP command:"
-            echo "scp -P $remote_port -v $remote_path $remote_user@$ip:./blender-3.5.1-linux-x64/media/"
+            echo "scp -P $remote_port -v $remote_path $remote_user@$ip:blender-cloudrender-manager/blender-3.5.1-linux-x64/media/"
             ;;
         2) # Generate SCP command to export rendered files
             clear
@@ -47,7 +47,7 @@ while true; do
             echo "Please enter the SSH port of this remote machine:"
             read remote_port
             echo "Here is your SCP command:"
-            echo "scp -P $remote_port -v ./blender-3.5.1-linux-x64/output/* $remote_user@$ip:$remote_path"
+            echo "scp -P $remote_port -v blender-cloudrender-manager/blender-3.5.1-linux-x64/output/* $remote_user@$ip:$remote_path"
             ;;
         3) # Check .blend files
             clear
