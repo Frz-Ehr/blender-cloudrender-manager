@@ -19,13 +19,13 @@ echo "
 import bpy
 
 # Trigger GPU device detection
-bpy.context.preferences.addons["cycles"].preferences.get_devices()
+bpy.context.preferences.addons['cycles'].preferences.get_devices()
 
 # Print the compute device type
-print(bpy.context.preferences.addons["cycles"].preferences.compute_device_type)
+print(bpy.context.preferences.addons['cycles'].preferences.compute_device_type)
 
 # Set all detected devices to be used
-for device in bpy.context.preferences.addons["cycles"].preferences.devices:
+for device in bpy.context.preferences.addons['cycles'].preferences.devices:
     device["use"] = 1
     print(device["name"], device["use"])
 
