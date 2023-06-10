@@ -28,18 +28,18 @@ while true; do
     case $choice in
         1) # Generate SCP command to import .blend files
             clear
-            echo "Please enter the username on the remote machine:"
+            echo "Please enter the username of the remote machine:"
             read remote_user
-            echo "Please enter the full path to the .blend file(s) on the remote machine:"
+            echo "Please enter the full path to the .blend file(s) on your machine:"
             read remote_path
             echo "Here is your SCP command:"
             echo "scp $remote_user@$ip:$remote_path ./blender-3.5.1-linux-x64/media/"
             ;;
         2) # Generate SCP command to export rendered files
             clear
-            echo "Please enter the username on the remote machine:"
+            echo "Please enter the username of the remote machine:"
             read remote_user
-            echo "Please enter the full path to the directory where you want to store the rendered files on the remote machine:"
+            echo "Please enter the full path to the directory where you want to store the rendered files on your machine:"
             read remote_path
             echo "Here is your SCP command:"
             echo "scp ./blender-3.5.1-linux-x64/output/* $remote_user@$ip:$remote_path"
