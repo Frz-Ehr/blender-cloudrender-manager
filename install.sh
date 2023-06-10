@@ -15,25 +15,23 @@ cd blender-3.5.1-linux-x64
 mkdir media output
 
 # Create gpu.py
-echo "import bpy
-scene = bpy.context.scene
-prefs = bpy.context.preferences
-cprefs = prefs.addons['cycles'].preferences
+echo "
+import bpy
 
-# Try to use OptiX
-try:
-    scene.cycles.device = 'OPTIX'
-    cprefs.compute_device_type = 'OPTIX'
-    for device in cprefs.devices:
-        if device.type == 'OPTIX':
-            device.use = True
-except:
-    # If OptiX is not available, fall back to CUDA
-    scene.cycles.device = 'CUDA'
-    cprefs.compute_device_type = 'CUDA'
-    for device in cprefs.devices:
-        if device.type == 'CUDA':
-            device.use = True
+# Trigger GPU device detection
+bpy.context.preferences.addons["cycles"].preferences.get_devices()
+
+# Print the compute device type
+print(bpy.context.preferences.addons["cycles"].preferences.compute_device_type)
+
+# Set all detected devices to be used
+for device in bpy.context.preferences.addons["cycles"].preferences.devices:
+    device["use"] = 1
+    print(device["name"], device["use"])
+
+# Set the render engine to CYCLES and the device to GPU
+bpy.context.scene.render.engine = 'CYCLES'
+bpy.context.scene.cycles.device = 'GPU'
 " > gpu.py
 
 clear
