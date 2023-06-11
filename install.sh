@@ -14,9 +14,6 @@ tar -xvf blender-3.5.1-linux-x64.tar
 cd blender-3.5.1-linux-x64
 mkdir media output
 
-# Import gpu.py
-mv /root/blender-cloudrender-manager/gpu.py /root/blender-cloudrender-manager/blender-3.5.1-linux-x64/gpu.py
-
 clear
 echo "Installation complete! You can now import your .blend files (don't forget to pack external data or import a .zip file)"
 cd ..
