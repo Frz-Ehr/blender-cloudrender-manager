@@ -8,10 +8,14 @@ function main_menu {
     echo "Welcome to the Blender Cloud Render Manager!"
     echo "=========================================="
     echo "Please select an option:"
-    echo "1. Install Blender and necessary packages"
-    echo "2. Import / Export"
-    echo "3. Launch Render"
-    echo "4. Exit"
+    echo ""
+    echo "1. [___Install Blender and necessary packages___]"
+    echo ""
+    echo "2. [______________Import / Export_______________]"
+    echo ""
+    echo "3. [_______________Launch Render________________]"
+    echo ""
+    echo "4. [____________________Exit____________________]"
 }
 
 # Loop until the user chooses to exit
