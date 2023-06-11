@@ -28,8 +28,6 @@ function monitor_directory {
     done
 }
 
-}
-
 # Start the directory monitor in the background
 monitor_directory &
 
