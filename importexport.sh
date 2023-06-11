@@ -17,6 +17,22 @@ function main_menu {
     echo "4. Return to main menu"
 }
 
+# Start a background process to monitor the media directory and automatically unzip .zip files
+function monitor_directory {
+    inotifywait -m -e create --format '%f' ./blender-3.5.1-linux-x64/media/ |
+    while read file; do
+        if [[ $file == *.zip ]]; then
+            unzip ./blender-3.5.1-linux-x64/media/$file -d ./blender-3.5.1-linux-x64/media/
+            rm ./blender-3.5.1-linux-x64/media/$file
+        fi
+    done
+}
+
+}
+
+# Start the directory monitor in the background
+monitor_directory &
+
 # Loop until the user chooses to return to main menu
 while true; do
     # Display the main menu
