@@ -45,7 +45,7 @@ while true; do
             clear
             echo "Please enter the username of this remote machine:"
             read remote_user
-            echo "Please enter the full path to the .blend file(s) on your local machine:"
+            echo "Please enter the full path to the .blend / .zip file on your local machine:"
             read remote_path
             echo "Please enter the SSH port of this remote machine:"
             read remote_port
