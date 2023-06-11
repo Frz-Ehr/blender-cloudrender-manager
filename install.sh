@@ -16,6 +16,18 @@ mkdir media output
 
 clear
 echo "Installation complete! You can now import your .blend files (don't forget to pack external data or import a .zip file)"
+# Get the remote user and port
+echo "Information required to generate import and export commands via ssh : "
+read -p "Please enter the username of this remote machine: " remote_user
+read -p "Please enter the SSH port of this remote machine: " remote_port
+
+# Create the config.sh file
+echo '#!/bin/bash' > config.sh
+echo "# Configuration file for Blender Cloud Render Manager" >> config.sh
+echo "" >> config.sh
+echo "# Remote user and port" >> config.sh
+echo "export REMOTE_USER=\"$remote_user\"" >> config.sh
+echo "export REMOTE_PORT=\"$remote_port\"" >> config.sh
 cd ..
 ./main.sh
 fi
