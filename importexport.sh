@@ -11,25 +11,17 @@ function main_menu {
     echo "Welcome to the Blender Cloud Render Manager!"
     echo "=========================================="
     echo "Please select an option:"
-    echo "1. Generate SCP command to import .blend files"
-    echo "2. Generate SCP command to export rendered files"
-    echo "3. Check media and output directory"
-    echo "4. Return to main menu"
+    echo ""
+    echo "1. [___Generate SCP command to import .blend files____]"
+    echo ""
+    echo "2. [___Generate SCP command to export rendered files__]"
+    echo ""
+    echo "3. [_________Check media and output directory_________]"
+    echo ""
+    echo "4. [_______________Return to main menu________________]"
+    echo ""
 }
 
-# Start a background process to monitor the media directory and automatically unzip .zip files
-function monitor_directory {
-    inotifywait -m -e create --format '%f' ./blender-3.5.1-linux-x64/media/ |
-    while read file; do
-        if [[ $file == *.zip ]]; then
-            unzip ./blender-3.5.1-linux-x64/media/$file -d ./blender-3.5.1-linux-x64/media/
-            rm ./blender-3.5.1-linux-x64/media/$file
-        fi
-    done
-}
-
-# Start the directory monitor in the background
-monitor_directory &
 
 # Loop until the user chooses to return to main menu
 while true; do
@@ -49,7 +41,8 @@ while true; do
             read remote_path
             echo "Please enter the SSH port of this remote machine:"
             read remote_port
-            echo "Here is your SCP command:"
+            echo "If you import a zip file : select the option [Check media and output directory]:"
+            echo "Here is your SCP command" 
             echo "scp -P $remote_port -v $remote_path $remote_user@$ip:blender-cloudrender-manager/blender-3.5.1-linux-x64/media/"
             ;;
         2) # Generate SCP command to export rendered files
@@ -60,7 +53,7 @@ while true; do
             read remote_path
             echo "Please enter the SSH port of this remote machine:"
             read remote_port
-            echo "Here is your SCP command:"
+            echo "Here is your SCP command, :"
             echo "scp -P $remote_port -v '$remote_user@$ip:blender-cloudrender-manager/blender-3.5.1-linux-x64/output/*' $remote_path"
             ;;
         3) # Check .blend files
@@ -70,6 +63,12 @@ while true; do
             echo "2. output"
             read dir_choice
             if [ "$dir_choice" == "1" ]; then
+                for file in ./blender-3.5.1-linux-x64/media/*.zip; do
+                   if [ -f "$file" ]; then
+                        unzip "$file" -d ./blender-3.5.1-linux-x64/media/
+                        rm "$file"
+                   fi
+                done
                 echo "Content of the media directory:"
                 ls ./blender-3.5.1-linux-x64/media/
             elif [ "$dir_choice" == "2" ]; then
