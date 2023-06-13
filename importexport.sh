@@ -29,8 +29,8 @@ function main_menu {
 function generate_import_command {
     clear
     # Get the remote user and port from the config file
-    remote_user=$(cat config | grep remote_user | cut -d'=' -f2)
-    remote_port=$(cat config | grep remote_port | cut -d'=' -f2)
+    remote_user=$(cat ./config | grep remote_user | cut -d'=' -f2)
+    remote_port=$(cat ./config | grep remote_port | cut -d'=' -f2)
     echo "Please enter the full path to the .blend file(s) on your local machine:"
     read remote_path
     echo "Here is your SCP command:"
@@ -43,8 +43,8 @@ function generate_import_command {
 function generate_export_command {
     clear
     # Get the remote user and port from the config file
-    remote_user=$(cat config | grep remote_user | cut -d'=' -f2)
-    remote_port=$(cat config | grep remote_port | cut -d'=' -f2)
+    remote_user=$(cat ./config | grep remote_user | cut -d'=' -f2)
+    remote_port=$(cat ./config | grep remote_port | cut -d'=' -f2)
     echo "Please enter the full path to the directory where you want to store the rendered files on your local machine:"
     read remote_path
     echo "Here is your SCP command:"
