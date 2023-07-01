@@ -6,12 +6,12 @@ sudo apt-get update
 sudo apt-get install -y vim netcat curl libglu1-mesa-dev libxi6 libxrender1 libfontconfig1 libxxf86vm-dev libxfixes-dev libgl1-mesa-glx xz-utils unzip nvidia-cuda-toolkit nano
 
 # Download and extract Blender
-curl -OL https://download.blender.org/release/Blender3.5/blender-3.5.1-linux-x64.tar.xz
-unxz blender-3.5.1-linux-x64.tar.xz
-tar -xvf blender-3.5.1-linux-x64.tar
+curl -OL https://ftp.halifax.rwth-aachen.de/blender/release/Blender3.6/blender-3.6.0-linux-x64.tar.xz
+unxz blender-3.6.0-linux-x64.tar.xz
+tar -xvf blender-3.6.0-linux-x64.tar
 
 # Create necessary directories
-cd blender-3.5.1-linux-x64
+cd blender-3.6.0-linux-x64
 mkdir media output
 
 clear
