@@ -34,7 +34,7 @@ function generate_import_command {
     echo "Please enter the full path to the .blend file(s) on your local machine:"
     read remote_path
     echo "Here is your SCP command:"
-    echo "scp -P $remote_port -v $remote_path $remote_user@$ip:blender-cloudrender-manager/blender-3.5.1-linux-x64/media/"
+    echo "scp -P $remote_port -v $remote_path $remote_user@$ip:blender-cloudrender-manager/blender-3.6.0-linux-x64/media/"
     # Wait for the user to press enter before showing the menu again
     read -p "Press enter to continue..."
 }
@@ -48,7 +48,7 @@ function generate_export_command {
     echo "Please enter the full path to the directory where you want to store the rendered files on your local machine:"
     read remote_path
     echo "Here is your SCP command:"
-    echo "scp -P $remote_port -v '$remote_user@$ip:blender-cloudrender-manager/blender-3.5.1-linux-x64/output/*' $remote_path"
+    echo "scp -P $remote_port -v '$remote_user@$ip:blender-cloudrender-manager/blender-3.6.0-linux-x64/output/*' $remote_path"
     # Wait for the user to press enter before showing the menu again
     read -p "Press enter to continue..."
 }
@@ -86,17 +86,17 @@ while true; do
             echo "2. output"
             read dir_choice
             if [ "$dir_choice" == "1" ]; then
-                for file in ./blender-3.5.1-linux-x64/media/*.zip; do
+                for file in ./blender-3.6.0-linux-x64/media/*.zip; do
                    if [ -f "$file" ]; then
-                        unzip "$file" -d ./blender-3.5.1-linux-x64/media/
+                        unzip "$file" -d ./blender-3.6.0-linux-x64/media/
                         rm "$file"
                    fi
                 done
                 echo "Content of the media directory:"
-                ls ./blender-3.5.1-linux-x64/media/
+                ls ./blender-3.6.0-linux-x64/media/
             elif [ "$dir_choice" == "2" ]; then
                 echo "Content of the output directory:"
-                ls ./blender-3.5.1-linux-x64/output/
+                ls ./blender-3.6.0-linux-x64/output/
             else
                 echo "Invalid choice, please try again."
             fi
