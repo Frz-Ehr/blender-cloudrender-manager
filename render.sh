@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-cd blender-3.5.1-linux-x64
+cd blender-3.6.0-linux-x64
 
 # Check for .blend files and prompt user to select one
 while true; do
