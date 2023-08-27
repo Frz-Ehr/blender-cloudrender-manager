@@ -1,6 +1,6 @@
 # Blender Cloud Rendering Automation
 
-This repository contains a set of Bash scripts that automate the process of setting up a Blender rendering environment optimized for RTX GPUs (rendered with OPTIX) on a cloud-based instance. It provides options for importing and exporting .blend files using Mega, as well as rendering the .blend files on the instance. This can be particularly useful for 3D artists looking to leverage the power of cloud computing for their rendering needs.
+This repository contains a set of Bash scripts that automate the process of setting up a Blender rendering environment on a cloud-based instance. It provides options for importing and exporting .blend files, as well as rendering the .blend files on the instance. This can be particularly useful for 3D artists looking to leverage the power of cloud computing for their rendering needs.
 
 ## Installation on a cloud-based instance
 
