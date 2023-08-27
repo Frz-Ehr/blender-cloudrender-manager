@@ -22,12 +22,9 @@ read -p "Please enter the username of this remote machine: " remote_user
 read -p "Please enter the SSH port of this remote machine: " remote_port
 
 # Create the config.sh file
-echo '#!/bin/bash' > config.sh
-echo "# Configuration file for Blender Cloud Render Manager" >> config.sh
-echo "" >> config.sh
-echo "# Remote user and port" >> config.sh
-echo "export REMOTE_USER=\"$remote_user\"" >> config.sh
-echo "export REMOTE_PORT=\"$remote_port\"" >> config.sh
+echo '#!/bin/bash' > ./config
+echo "export REMOTE_USER=\"$remote_user\"" >> ./config
+echo "export REMOTE_PORT=\"$remote_port\"" >> ./config
 cd ..
 ./main.sh
 fi
