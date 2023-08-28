@@ -24,5 +24,12 @@ read -p "Please enter the SSH port of this remote machine: " remote_port
 # Create the config.sh file
 echo "remote_user=$remote_user" > ./config
 echo "remote_port=$remote_port" >> ./config
+
+read -p "Please enter your Telegram API token: " telegram_token
+read -p "Please enter your Telegram chat ID: " telegram_chat_id
+
+echo "telegram_token=$telegram_token" >> ./config
+echo "telegram_chat_id=$telegram_chat_id" >> ./config
+
 cd ..
 ./main.sh
