@@ -57,6 +57,16 @@ while true; do
         echo "Invalid render type entered. Please enter 1 for image render, 2 for video render."
         continue
     fi
+    
+    # Fetching the Telegram API Token and Chat ID from the configuration file
+    telegram_token=$(cat ./config | grep telegram_token | cut -d'=' -f2)
+    telegram_chat_id=$(cat ./config | grep telegram_chat_id | cut -d'=' -f2)
+    
+    # Message content
+    MESSAGE="Rendering of $blend_file completed!"
+
+    # Sending the message via Telegram API
+    curl -s -X POST "https://api.telegram.org/bot$telegram_token/sendMessage" -d chat_id=$telegram_chat_id -d text="$MESSAGE"
 
     echo "Rendering complete. The output can be found in the output/ directory."
     cd ..
