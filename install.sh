@@ -27,4 +27,3 @@ echo "export REMOTE_USER=\"$remote_user\"" >> ./config
 echo "export REMOTE_PORT=\"$remote_port\"" >> ./config
 cd ..
 ./main.sh
-fi
