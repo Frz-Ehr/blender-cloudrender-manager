@@ -22,8 +22,7 @@ read -p "Please enter the username of this remote machine: " remote_user
 read -p "Please enter the SSH port of this remote machine: " remote_port
 
 # Create the config.sh file
-echo '#!/bin/bash' > ./config
-echo "export REMOTE_USER=\"$remote_user\"" >> ./config
-echo "export REMOTE_PORT=\"$remote_port\"" >> ./config
+echo "remote_user=$remote_user" > ./config
+echo "remote_port=$remote_port" >> ./config
 cd ..
 ./main.sh
